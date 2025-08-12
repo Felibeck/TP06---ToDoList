@@ -17,13 +17,13 @@ static public class BD
         int IDusuarioBuscado = -1;
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = "SELECT ID FROM Usuarios WHERE password = @pPassword";
-            IDusuarioBuscado = connection.QueryFirstOrDefault<int>(query, new { pPassword = password});
+            string query = "SELECT ID FROM Usuarios WHERE username = @pUsername AND password = @pPassword";
+            IDusuarioBuscado = connection.QueryFirstOrDefault<int>(query, new { pPassword = password, pUsername = username});
         }
             return IDusuarioBuscado;
     }
 
-// sign in
+// Registrarse
     public static void SignIn(string username, string password, string nombre, string apellido, string foto, string fechaUltimoLogin)
     {
         if(GetUsuario(username) == null)
@@ -78,15 +78,13 @@ static public class BD
         }
     }
 
-    public static int borrarTarea(string titulo, int idUsuario)
+    public static void borrarTarea(int idTarea)
     {
-        int numeroDeTareasBorradas;
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = "DELETE FROM Tarea WHERE titulo = @pTitulo AND IDUsuario = @pIDUsuario";
-            numeroDeTareasBorradas = connection.Execute(query, new {pTitulo = titulo, pIDUsuario = idUsuario});
+            string query = "DELETE FROM Tarea WHERE ID = @pidTarea";
+            connection.Execute(query, new {pidTarea = idTarea});
         }
-        return numeroDeTareasBorradas;
     }
 
     public static void marcarTareaFinalizada(string titulo)
@@ -98,16 +96,31 @@ static public class BD
             connection.Execute(query, new {pIdUsuario = idUsuario});
         }
     }
-        public static int GetTarea(string titulo)
+    public static Tarea verTarea(int idTarea)
     {
-        int tareaBuscada = -1;
-         using(SqlConnection connection = new SqlConnection(_connectionString))
+        Tarea tareaBuscada = new Tarea();
+
+        using(SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = "SELECT Tareas.IDUsuario FROM Tareas WHERE titulo = @pTitulo";
-            tareaBuscada = connection.QueryFirstOrDefault<Usuario>(query, new { pTitulo = titulo});
+            string query = "SELECT * FROM Tareas WHERE ID = @pIDTarea";
+            tareaBuscada = connection.QueryFirstOrDefault<Tarea>(query, new { pIDTarea = idTarea });
         }
 
         return tareaBuscada;
+    }
+
+    public static DateTime getFechaUltIngr(int idUsuario)
+    {
+        DateTime fechaUltimoIngreso;
+        using(SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            string query = "SELECT ultimoLogin FROM Tareas WHERE ID = @pIDUsuario";
+            fechaUltimoIngreso = connection.QueryFirstOrDefault<DateTime>(query, new { pIDUsuario = idUsuario });
+
+        }
+
+        return fechaUltimoIngreso;
+
     }
 }
 
