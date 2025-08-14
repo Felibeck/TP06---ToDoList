@@ -24,9 +24,9 @@ static public class BD
     }
 
 // Registrarse
-    public static void SignIn(string username, string password, string nombre, string apellido, string foto, string fechaUltimoLogin)
+    public static void SignIn(string username, string password, string nombre, string apellido, string foto, DateTime fechaUltimoLogin)
     {
-        if(GetUsuario(username) == null)
+        if(GetUsuario(username, password) == null)
         {
             using(SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -36,13 +36,13 @@ static public class BD
         }
     }
 
-    public static Usuario GetUsuario(string username)
+    public static Usuario GetUsuario(string username, string password)
     {
        Usuario usuarioBuscado = null;
          using(SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = "SELECT * FROM Usuarios WHERE username = @pUsername";
-            usuarioBuscado = connection.QueryFirstOrDefault<Usuario>(query, new { pUsername = username});
+            string query = "SELECT * FROM Usuarios WHERE username = @pUsername AND password = @pPassword";
+            usuarioBuscado = connection.QueryFirstOrDefault<Usuario>(query, new { pUsername = username, pPassword = password});
         }
 
         return usuarioBuscado;
@@ -87,13 +87,12 @@ static public class BD
         }
     }
 
-    public static void marcarTareaFinalizada(string titulo)
+    public static void marcarTareaFinalizada(int idTarea)
     {
-        int idUsuario = GetTarea(titulo);
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = "UPDATE Tareas SET finalizada = 1 WHERE IDUsuario = @pIdUsuario";
-            connection.Execute(query, new {pIdUsuario = idUsuario});
+            string query = "UPDATE Tareas SET finalizada = 1 WHERE ID = @pIdTarea";
+            connection.Execute(query, new {pIdTarea = idTarea});
         }
     }
     public static Tarea verTarea(int idTarea)

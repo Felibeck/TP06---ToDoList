@@ -1,23 +1,53 @@
-html {
-  font-size: 14px;
-  min-height: 100%;
+*
+{
+  margin:0;
+  padding:0;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+header
+{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-bottom: 0.5%;
+  background-color: lightcoral;
+  display:flex;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 19%;
 }
 
-body {
-  margin: 10px;
-  padding: 10px;
+header a img
+{
+  width:20%;
+  height: auto;
+  position:relative;
+  left:120px;
+  top:10px;
 }
 
+#Titulo 
+{
+  color: black;
+  text-decoration:none;
+  text-align: center;
+  font-size:50px;
+  margin-top: 1.5%;
+}
 
-footer {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #f8f9fa;
-  border-top: 1px solid #e9ecef;
+.main-index section a
+{
+   color:black;
+   text-decoration: none;
+   font-size: 100px;
+   padding:5% 15%;
+   margin-top:5%;
+   margin:0.5%;
+
+   border-radius: 30px;
+   background-color: lightblue;
+}
+
+.main-index section{
+
+  display: flex;
+  justify-content: center;
 }

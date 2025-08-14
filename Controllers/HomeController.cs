@@ -62,4 +62,10 @@ public class HomeController : Controller
         return RedirectToAction("verTareas");
     }
 
+    public IActionResult finalizarTarea(int idTarea)
+    {
+        BD.marcarTareaFinalizada(idTarea);
+        return RedirectToAction("verTareas");
+    }
+
 }

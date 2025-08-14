@@ -10,16 +10,15 @@
 
 <body>
     <header>
-        NombreProyecto
+
+        <a href='@Url.Action("logOut", "Account")'><img src="/Imagenes/logOutImagen.png"></a>
+        <a id="Titulo" href='@Url.Action("Index", "Home")'>To Do List</a>
+        
     </header>
 
     <main role="main">
         @RenderBody()
     </main>
-
-    <footer>
-        &copy; @DateTime.Now.Year - NombreProyecto
-    </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
