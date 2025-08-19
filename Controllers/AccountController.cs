@@ -13,6 +13,14 @@ public class AccountController : Controller
         _logger = logger;
     }
 
+
+    private readonly IWebHostEnvironment _env;
+
+    public AccountController(IWebHostEnvironment env)
+    {
+        _env = env;
+    }
+
     public IActionResult Login()
     {
         return View();
@@ -22,9 +30,15 @@ public class AccountController : Controller
     public IActionResult guardarLogin(string username, string password)
     { 
         int idUsuario = BD.Login(username,password);
+        if (idUsuario == -1)
+        {
+            return View("Login");
+        }
+        else{
         BD.getFechaUltIngr(idUsuario);
         HttpContext.Session.SetString("ID",idUsuario.ToString());
         return View("verTareas");
+        }
     }
 
     public IActionResult Registro()
@@ -33,8 +47,24 @@ public class AccountController : Controller
     }
 
     [HttpPost]
-    public IActionResult guardarRegistro(string username, string password, string nombre, string apellido, string foto)
+    public IActionResult guardarRegistro(string username, string password, string nombre, string apellido, IFormFile foto)
     {
+        if(foto != null && foto.Length > 0)
+        {
+            string nombreFoto = foto.FileName;
+            string rutaCarpeta = Path.Combine(_env.WebRootPath, "Imagenes");
+
+            if(!Directory.Exists(rutaCarpeta))
+                Directory.CreateDirectory(rutaCarpeta);
+
+            string rutaCompleta = Path.Combine(rutaCarpeta, nombreFoto);
+            using(var stream = new FileStream(rutaCompleta, FileMode.Create))
+            {
+                foto.CopyTo(stream);
+            }
+        }
+
+
         BD.SignIn(username,password,nombre,apellido,foto,(DateTime.Today));
         Usuario usuario = BD.GetUsuario(username,password);
         HttpContext.Session.SetString("ID", usuario.ID.ToString());

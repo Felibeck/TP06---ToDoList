@@ -78,3 +78,4 @@ C:\Users\49255481\TP06---ToDoList\obj\Debug\net8.0\refint\TP06-ToDoList.dll
 C:\Users\49255481\TP06---ToDoList\obj\Debug\net8.0\TP06-ToDoList.pdb
 C:\Users\49255481\TP06---ToDoList\obj\Debug\net8.0\TP06-ToDoList.genruntimeconfig.cache
 C:\Users\49255481\TP06---ToDoList\obj\Debug\net8.0\ref\TP06-ToDoList.dll
+C:\Users\49255481\TP06---ToDoList\bin\Debug\net8.0\System.Text.Json.dll

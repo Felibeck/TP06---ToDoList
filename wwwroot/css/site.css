@@ -43,11 +43,54 @@ header a img
    margin:0.5%;
 
    border-radius: 30px;
-   background-color: lightblue;
+   /* background-color: lightblue; */
 }
 
 .main-index section{
 
   display: flex;
   justify-content: center;
+  padding-top:10%;  
 }
+
+.main-index section a:first-child
+{
+  background-color: lightblue;
+}
+
+
+.main-index section a:last-child
+{
+  background-color: lightcoral;
+}
+
+.login
+{
+  
+}
+.login div
+{
+  display: flex;
+  justify-content: center;
+}
+
+
+.main-signin
+{
+  display: flex;
+  justify-content: center;
+}
+
+.main-signin div
+{
+  width: 35%;
+  height: auto;
+  background-color: gray;
+  border-radius: 30px;
+}
+
+.main-signin div h1
+{
+  text-align: center;
+}
+

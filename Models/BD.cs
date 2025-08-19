@@ -24,7 +24,7 @@ static public class BD
     }
 
 // Registrarse
-    public static void SignIn(string username, string password, string nombre, string apellido, string foto, DateTime fechaUltimoLogin)
+    public static void SignIn(string username, string password, string nombre, string apellido, IFormFile foto, DateTime fechaUltimoLogin)
     {
         if(GetUsuario(username, password) == null)
         {
