@@ -1,8 +1,15 @@
-﻿<main class="main-index">
+﻿<header class="main-header">
+    <a href='@Url.Action("Index", "Home")' class="header-title">To Do List</a>
+    <nav class="header-actions">
+        <a href='@Url.Action("logOut", "Account")'>
+            <img src="/Imagenes/logOutImagen.png" alt="Log Out">
+        </a>
+    </nav>
+</header>
 
-    <section>
-    <a href='@Url.Action("Login", "Account")'>Login</a>
-    <a href='@Url.Action("Registro", "Account")'>Sign In</a>
+<main class="main-index">
+    <section class="index-actions">
+        <a href='@Url.Action("Login", "Account")' class="btn btn-primary">Login</a>
+        <a href='@Url.Action("Registro", "Account")' class="btn btn-primary">Sign In</a>
     </section>
-
 </main>

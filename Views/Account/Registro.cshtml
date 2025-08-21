@@ -1,39 +1,45 @@
+<header class="main-header">
+    <a href='@Url.Action("Index", "Home")' class="header-title">To Do List</a>
+    <nav class="header-actions">
+        <a href='@Url.Action("logOut", "Account")'>
+            <img src="/Imagenes/logOutImagen.png" alt="Log Out">
+        </a>
+    </nav>
+</header>
+
 <main class="main-signin">
-
     <div>
-
         <h1>Sign In</h1>
+        <form action='@Url.Action("guardarRegistro", "Account")' method="POST" enctype="multipart/form-data" class="signin-form">
 
-        <form action='@Url.Action("guardarRegistro", "Account")' method="POST" enctype="multipart/form-data">
-        
-            <div>
-            <label>Username</label>
-            <input type="text" required name="username"/>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input id="username" type="text" required name="username"/>
             </div>
 
-            <div>
-            <label>Password</label>
-            <input type="password" required name="password"/>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input id="password" type="password" required name="password"/>
             </div>
 
-            <div>
-            <label>Nombre</label>
-            <input type="text" required name="nombre"/>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" type="text" required name="nombre"/>
             </div>
 
-            <div>
-            <label>Apellido</label>
-            <input type="text" required name="apellido"/>
+            <div class="form-group">
+                <label for="apellido">Apellido</label>
+                <input id="apellido" type="text" required name="apellido"/>
             </div>
 
-            <div>
-            <label>Foto</label>
-            <input type="file" required name="foto"/>
+            <div class="form-group">
+                <label for="foto">Foto</label>
+                <input id="foto" type="file" required name="foto"/>
             </div>
 
-            <input type="submit" value="Sign In"/>
-
+            <div class="form-actions">
+                <input type="submit" value="Sign In" class="btn btn-primary"/>
+            </div>
         </form>
     </div>
-
 </main>

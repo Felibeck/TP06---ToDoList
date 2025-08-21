@@ -9,12 +9,18 @@
 </head>
 
 <body>
-    <header>
+<header class="main-header">
 
-        <a href='@Url.Action("logOut", "Account")'><img src="/Imagenes/logOutImagen.png"></a>
-        <a id="Titulo" href='@Url.Action("Index", "Home")'>To Do List</a>
-        
-    </header>
+    <a href='@Url.Action("Index", "Home")' class="header-title">To Do List</a>
+
+    <nav class="header-actions">
+        <a href='@Url.Action("logOut", "Account")' class="logout-btn">
+            <img src="/Imagenes/logOutImagen.png" alt="Log Out">
+        </a>
+    </nav>
+
+</header>
+
 
     <main role="main">
         @RenderBody()

@@ -1,19 +1,25 @@
+<header class="main-header">
+    <a href='@Url.Action("Index", "Home")' class="header-title">To Do List</a>
+    <nav class="header-actions">
+        <a href='@Url.Action("logOut", "Account")'>
+            <img src="/Imagenes/logOutImagen.png" alt="Log Out">
+        </a>
+    </nav>
+</header>
+
 <main class="main-verTarea">
+    <h1>Información de la tarea</h1>
+    <a href='@Url.Action("verTareas", "Home")' class="btn btn-primary">Volver</a>
 
-    <h1>Informacion de la tarea</h1>
+    <div class="task-detail">
+        <h2>@ViewBag.Tarea.titulo</h2>
+        <p>@ViewBag.Tarea.descripcion</p>
+        <p><strong>Fecha:</strong> @ViewBag.Tarea.fecha</p>
+        <p><strong>Estado:</strong> @ViewBag.Tarea.finalizada</p>
 
-    <a href='@Url.Action("verTareas", "Home")'>Volver</a>
-
-    <div>
-    
-        <h1>@ViewBag.Tarea.titulo</h1>
-        <h1>@ViewBag.Tarea.descripcion</h1>
-        <h1>@ViewBag.Tarea.fecha</h1>
-        <h1>@ViewBag.Tarea.finalizada</h1>
-
-        <a href='@Url.Action("eliminarTarea", "Home", new {idTarea=ViewBag.Tarea.ID})'>Eliminar Tarea</a>
-
-        <a href='@Url.Action("modificarTarea", "Home")'>Modificar Tarea</a>
+        <div class="task-actions">
+            <a href='@Url.Action("eliminarTarea", "Home", new {idTarea=ViewBag.Tarea.ID})' class="btn btn-danger">Eliminar Tarea</a>
+            <a href='@Url.Action("modificarTarea", "Home")' class="btn btn-primary">Modificar Tarea</a>
+        </div>
     </div>
-
 </main>

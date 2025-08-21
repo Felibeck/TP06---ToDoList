@@ -1,25 +1,29 @@
+<header class="main-header">
+    <a href='@Url.Action("Index", "Home")' class="header-title">To Do List</a>
+    <nav class="header-actions">
+        <a href='@Url.Action("logOut", "Account")'>
+            <img src="/Imagenes/logOutImagen.png" alt="Log Out">
+        </a>
+    </nav>
+</header>
+
 <main class="main-verTareas">
+    <a href='@Url.Action("agregarTarea", "Home")' class="btn btn-primary">Agregar Tarea</a>
 
-    <a href='@Url.Action("agregarTarea", "Home")'>Agregar Tarea</a>
-
-    <article>
-    
+    <article class="tasks-list">
         @foreach(Tarea i in ViewBag.listaTareas)
         {
-            <section>
-                <h1>@i.titulo</h1>                
-                <a href='@Url.Action("finalizarTarea", "Home", new {idTarea=i.ID})'>Finalizar Tarea</a>
+            <section class="task-card">
+                <h2>@i.titulo</h2>                
+                <a href='@Url.Action("finalizarTarea", "Home", new {idTarea=i.ID})' class="btn btn-primary">Finalizar Tarea</a>
 
                 @if(i.finalizada == true)
                 {
-                    <img src="/Imagenes/finalizado.png"/>
+                    <img src="/Imagenes/finalizado.png" alt="Finalizado"/>
                 }
 
-                <a href='@Url.Action("verTarea", "Home", new {idTarea=i.ID})'>Ver tarea</a>
-
+                <a href='@Url.Action("verTarea", "Home", new {idTarea=i.ID})' class="btn btn-primary">Ver tarea</a>
             </section>
         }
-
     </article>
-
 </main>

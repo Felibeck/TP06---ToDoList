@@ -1,18 +1,38 @@
+<header class="main-header">
+    <a href='@Url.Action("Index", "Home")' class="header-title">To Do List</a>
+    <nav class="header-actions">
+        <a href='@Url.Action("logOut", "Account")'>
+            <img src="/Imagenes/logOutImagen.png" alt="Log Out">
+        </a>
+    </nav>
+</header>
+
 <main class="main-modificarTarea">
+    <a href='@Url.Action("verTareas", "Home")' class="btn btn-primary">Volver</a>
 
-    <a href='@Url.Action("verTareas", "Home")'>Volver</a>
+    <h1>Modificar Tarea</h1>
 
+    <form action='@Url.Action("modificarTarea", "Home")' method="POST" enctype="multipart/form-data" class="task-form">
 
-    <form action='@Url.Action("modificarTarea", "Home")' method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <input type="text" name="titulo" placeholder="Título" required/>
+        </div>
 
-    <input type="text" name="titulo" placeholder="Titulo" required/>
-    <input type="text" name="descripcion" placeholder="Descripción" required/>
-    <input type="date" name="fecha" placeholder="Fecha" required/>
+        <div class="form-group">
+            <input type="text" name="descripcion" placeholder="Descripción" required/>
+        </div>
 
-    <input type="radio" name="finalizado" value="Finalizado"/> Finalizado
-    <input type="radio" name="finalizado" value="Por hacer"/> Por hacer
+        <div class="form-group">
+            <input type="date" name="fecha" required/>
+        </div>
 
-    <input type="submit" value="Modificar tarea"/>
+        <div class="form-group">
+            <label><input type="radio" name="finalizado" value="Finalizado"/> Finalizado</label>
+            <label><input type="radio" name="finalizado" value="Por hacer"/> Por hacer</label>
+        </div>
+
+        <div class="form-actions">
+            <input type="submit" value="Modificar tarea" class="btn btn-primary"/>
+        </div>
     </form>
-
 </main>
