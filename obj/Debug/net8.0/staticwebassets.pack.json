@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\49255481\\TP06---ToDoList\\wwwroot\\Imagenes\\finalizado.png",
+      "PackagePath": "staticwebassets\\Imagenes\\finalizado.png"
+    },
+    {
       "Id": "C:\\Users\\49255481\\TP06---ToDoList\\wwwroot\\Imagenes\\logOutImagen.png",
       "PackagePath": "staticwebassets\\Imagenes\\logOutImagen.png"
     },

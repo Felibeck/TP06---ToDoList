@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "78cMaPL61mlP39guXTShXtJXTLrvZjfGbiliF9m10AY=",
+  "Hash": "I/kuD/VeW3uEtm42po4QjoWxQAd48HVrWI/PbiQLlHI=",
   "Source": "TP06-ToDoList",
   "BasePath": "_content/TP06-ToDoList",
   "Mode": "Default",
@@ -72,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\49255481\\TP06---ToDoList\\wwwroot\\Imagenes\\finalizado.png",
+      "SourceId": "TP06-ToDoList",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\49255481\\TP06---ToDoList\\wwwroot\\",
+      "BasePath": "_content/TP06-ToDoList",
+      "RelativePath": "Imagenes/finalizado.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Imagenes\\finalizado.png"
     },
     {
       "Identity": "C:\\Users\\49255481\\TP06---ToDoList\\wwwroot\\Imagenes\\logOutImagen.png",

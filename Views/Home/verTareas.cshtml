@@ -1,2 +1,24 @@
-<h1>hola ver tareas</h1>
-        
+<main class="main-verTareas">
+
+    <article>
+    
+        @foreach(Tarea i in ViewBag.listaTareas)
+        {
+            <section>
+                <h1>@i.titulo</h1>                
+                <a href='@Url.Action("finalizarTarea", "Home", new {idTarea="@i.ID"})'>Finalizar Tarea</a>
+
+                @if(i.finalizada == true)
+                {
+                    <img src="/Imagenes/finalizado.png"/>
+                    <!-- no funciona, la imagen al tocar la palabra no se  -->
+                }
+
+                <a href='@Url.Action("verTarea", "Home", new {idTarea="@i.ID"})'>Ver tarea</a>
+
+            </section>
+        }
+
+    </article>
+
+</main>

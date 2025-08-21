@@ -6,12 +6,6 @@ namespace TP06_ToDoList.Controllers;
 
 public class AccountController : Controller
 {
-    private readonly ILogger<AccountController> _logger;
-
-    public AccountController(ILogger<AccountController> logger)
-    {
-        _logger = logger;
-    }
 
 
     private readonly IWebHostEnvironment _env;
@@ -37,7 +31,7 @@ public class AccountController : Controller
         else{
         BD.getFechaUltIngr(idUsuario);
         HttpContext.Session.SetString("ID",idUsuario.ToString());
-        return View("verTareas");
+        return RedirectToAction("verTareas", "Home");
         }
     }
 

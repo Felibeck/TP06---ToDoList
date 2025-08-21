@@ -64,33 +64,3 @@ header a img
   background-color: lightcoral;
 }
 
-.login
-{
-  
-}
-.login div
-{
-  display: flex;
-  justify-content: center;
-}
-
-
-.main-signin
-{
-  display: flex;
-  justify-content: center;
-}
-
-.main-signin div
-{
-  width: 35%;
-  height: auto;
-  background-color: gray;
-  border-radius: 30px;
-}
-
-.main-signin div h1
-{
-  text-align: center;
-}
-

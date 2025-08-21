@@ -7,7 +7,7 @@ namespace TP06_ToDoList;
 
 static public class BD
 {
-    private static string _connectionString = @"Server=localhost;DataBase=Presentacion;Integrated Security=True;TrustServerCertificate=True;";
+    private static string _connectionString = @"Server=localhost;DataBase=listaTareas;Integrated Security=True;TrustServerCertificate=True;";
 
 
 
@@ -30,7 +30,7 @@ static public class BD
         {
             using(SqlConnection connection = new SqlConnection(_connectionString))
             {
-                string query = "INSERT INTO Usuario (username, password, nombre, apellido, foto, fechaUltimoLogin) VALUES (@pUsername, @pPassword, @pNombre, @pApellido, @pFoto, @pFechaUltimoLogin)";
+                string query = "INSERT INTO Usuario (username, password, nombre, apellido, foto, ultimoLogin) VALUES (@pUsername, @pPassword, @pNombre, @pApellido, @pFoto, @pFechaUltimoLogin)";
                 connection.Execute(query, new {pUsername = username, pPassword = password, pNombre = nombre, pApellido = apellido, pFoto = foto, pFechaUltimoLogin = fechaUltimoLogin});
             }
         }
@@ -97,7 +97,7 @@ static public class BD
     }
     public static Tarea verTarea(int idTarea)
     {
-        Tarea tareaBuscada = new Tarea();
+        Tarea tareaBuscada =  null;
 
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
@@ -113,7 +113,7 @@ static public class BD
         DateTime fechaUltimoIngreso;
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = "SELECT ultimoLogin FROM Tareas WHERE ID = @pIDUsuario";
+            string query = "SELECT ultimoLogin FROM Usuarios WHERE ID = @pIDUsuario";
             fechaUltimoIngreso = connection.QueryFirstOrDefault<DateTime>(query, new { pIDUsuario = idUsuario });
 
         }
