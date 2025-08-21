@@ -8,7 +8,7 @@ public class Usuario
     public string foto {get; private set;}
     public DateTime ultimoLogin {get; private set;}
 
-    public Usuario(int ID, string username, string password, string nombre, string apellido, string foto, DateTime ultimoLogin){}
+    public Usuario(){}
 
     
 }

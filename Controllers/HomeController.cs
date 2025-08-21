@@ -36,10 +36,10 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult agregarTarea(string titulo, string descripcion, DateTime fecha, bool finalizada)
+    public IActionResult agregarTarea(string titulo, string descripcion, DateTime fecha)
     {
         int idUsuario = int.Parse(HttpContext.Session.GetString("ID"));
-        BD.crearTarea(titulo, descripcion, fecha, finalizada,idUsuario);
+        BD.crearTarea(titulo, descripcion, fecha,idUsuario);
         return RedirectToAction("verTareas");
     }
 
@@ -49,10 +49,21 @@ public class HomeController : Controller
     }
     
     [HttpPost]
-    public IActionResult modificarTarea(string titulo, string descripcion, DateTime fecha, bool finalizada)
+    public IActionResult modificarTarea(string titulo, string descripcion, DateTime fecha, string opcionFinalizar)
     {
         int idUsuario = int.Parse(HttpContext.Session.GetString("ID"));
-        BD.editarTarea(titulo, descripcion, fecha, finalizada,idUsuario);
+
+
+        bool finalizarBool = false;
+        if(opcionFinalizar == "Finalizada")
+        {
+            finalizarBool = true;
+        }else if(opcionFinalizar == "Por hacer")
+        {
+            finalizarBool = false;
+        }
+
+        BD.editarTarea(titulo, descripcion, fecha, finalizarBool,idUsuario);
         return RedirectToAction("verTareas");
     }
 

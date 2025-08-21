@@ -53,19 +53,19 @@ static public class BD
         List<Tarea> listaDeTareas = new List<Tarea>();
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = "SELECT * FROM Tareas WHERE IDUsuario = @pIDUsuario AND finalizada = 0";
+            string query = "SELECT * FROM Tareas WHERE IDUsuario = @pIDUsuario";
             listaDeTareas = connection.Query<Tarea>(query, new { pIDUsuario = idUsuario}).ToList();
         }
 
         return listaDeTareas;
     }
 
-    public static void crearTarea(string titulo, string descripcion, DateTime fecha, bool finalizada, int IDUsuario)
+    public static void crearTarea(string titulo, string descripcion, DateTime fecha, int IDUsuario)
     {
         using(SqlConnection connection = new SqlConnection(_connectionString))
         {
             string query = "INSERT INTO Tareas (titulo, descripcion, fecha, finalizada, IDUsuario) VALUES (@pTitulo, @pDescripcion, @pFecha, @pFinalizada, @pIDUsuario)";
-            connection.Execute(query, new {pTitulo = titulo, pDescripcion = descripcion, pFecha = fecha, pFinalizada = finalizada, pIDUsuario = IDUsuario});
+            connection.Execute(query, new {pTitulo = titulo, pDescripcion = descripcion, pFecha = fecha, pFinalizada = 0, pIDUsuario = IDUsuario});
         }
     }
 

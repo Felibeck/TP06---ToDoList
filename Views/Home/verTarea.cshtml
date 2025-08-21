@@ -2,6 +2,8 @@
 
     <h1>Informacion de la tarea</h1>
 
+    <a href='@Url.Action("verTareas", "Home")'>Volver</a>
+
     <div>
     
         <h1>@ViewBag.Tarea.titulo</h1>
@@ -9,8 +11,9 @@
         <h1>@ViewBag.Tarea.fecha</h1>
         <h1>@ViewBag.Tarea.finalizada</h1>
 
-        <a href='@Url.Action("eliminarTarea", "Home", new {idTarea="@ViewBag.Tarea.ID")'>Eliminar Tarea</a>
+        <a href='@Url.Action("eliminarTarea", "Home", new {idTarea=ViewBag.Tarea.ID})'>Eliminar Tarea</a>
 
+        <a href='@Url.Action("modificarTarea", "Home")'>Modificar Tarea</a>
     </div>
 
 </main>

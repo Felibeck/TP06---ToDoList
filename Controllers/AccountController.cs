@@ -68,6 +68,6 @@ public class AccountController : Controller
     public IActionResult logOut()
     {
         HttpContext.Session.Remove("ID");
-        return RedirectToAction("Index");
+        return RedirectToAction("Index", "Home");
     }
 }

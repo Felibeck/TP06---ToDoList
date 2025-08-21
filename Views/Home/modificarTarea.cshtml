@@ -1,0 +1,18 @@
+<main class="main-modificarTarea">
+
+    <a href='@Url.Action("verTareas", "Home")'>Volver</a>
+
+
+    <form action='@Url.Action("modificarTarea", "Home")' method="POST" enctype="multipart/form-data">
+
+    <input type="text" name="titulo" placeholder="Titulo" required/>
+    <input type="text" name="descripcion" placeholder="Descripción" required/>
+    <input type="date" name="fecha" placeholder="Fecha" required/>
+
+    <input type="radio" name="finalizado" value="Finalizado"/> Finalizado
+    <input type="radio" name="finalizado" value="Por hacer"/> Por hacer
+
+    <input type="submit" value="Modificar tarea"/>
+    </form>
+
+</main>
